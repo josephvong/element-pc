@@ -1,11 +1,11 @@
 <template>
-  <div class="login">
-     <h1>hello world</h1>
-     <div>
-       <p><input v-model="user" type="text"></p>
-       <p><input v-model="password" type="text"></p>
-       <button @click="handleLogin" >提交</button>
-     </div>
+  <div class="login-container">
+    <el-form>
+      <h3 class="title">系统登录</h3>
+      el-form
+      <el-form-item>
+      </el-form-item>
+    </el-form>
   </div>
 </template>
 
@@ -30,6 +30,11 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="styl" scoped>
+<style rel="stylesheet/stylus" lang="stylus" scoped>
+@import 'src/styles/mixin'
+$bg = #2d3a4b
+.login-container
+  height 100vh
+  background $bg
 
 </style>
