@@ -1,18 +1,20 @@
 <template>
   <div class="login-container">
-    <el-form class="login-form" autoComplete="on" :model="loginForm" :rules="loginRules" ref="loginForm" label-position="right" >
+    <el-form class="login-form" autoComplete="on" :model="loginForm" :rules="loginRules" ref="loginForm" label-position="left" >
       <h3 class="title">系统登录</h3>
 
       <el-form-item prop="username">
        <em class='iconfont icon-user'></em>
        <el-input name="username" type="text" v-model="loginForm.username" autoComplete="on" placeholder="邮箱" />
-       <!--  -->
       </el-form-item>
 
       <el-form-item prop="password">
-       <el-input name="password" type="text" v-model="loginForm.password" autoComplete="on" placeholder="密码" />
        <em class='iconfont icon-password'></em>
+       <el-input name="password" type="password" v-model="loginForm.password" autoComplete="on" placeholder="密码" />
       </el-form-item>
+
+      <el-button type="primary" style="width:100%;margin-bottom:30px;" :loading="loading" @click.native.prevent="handleLogin">登录</el-button>
+
     </el-form>
   </div>
 </template>
@@ -42,22 +44,34 @@ export default {
     }
     return {
       loginForm: {
-        username: 'admin',
-        password: '111111'
+        username: '',
+        password: ''
       },
       loginRules: {
         // el-form 的 校验规则 validator 传入 一个函数 进行校验
         username: [{required: true, trigger: 'blur', validator: validateUsername}],
         password: [{required: true, trigger: 'blur', validator: validatePassword}]
-      }
+      },
+      loading: false
     }
   },
   methods: {
-    /* handleLogin () {
-      loginByUsername(this.user, this.password).then((res) => {
-        console.log(res)
+    // 登录按钮触发函数
+    handleLogin () {
+      this.loading = true
+      // loginForm组件调用validate()方法进行验证后的回调（参考ELE_UI手册 ）
+      this.$refs.loginForm.validate((valid) => { // 验证回调的参数为布尔值（是否成功）
+        if (valid) {
+          this.$store.dispatch('LoginByUsername', this.loginForm).then((res) => {
+            this.loading = false
+            console.log(res)
+          })
+        } else {
+          this.loading = false
+          alert('失败')
+        }
       })
-    } */
+    }
   }
 }
 </script>
@@ -81,13 +95,11 @@ $dark_gray = #889aa4
     border-radius: 0px;
     padding: 12px 5px 12px 15px;
     color: $light_gray;
-    height: 60px;  
   .el-input
     display inline-block
-    height 60px
     width 85%
   .iconfont
-    padding 6px 5px 6px 15px
+    padding 6px 10px 6px 10px
     color $dark_gray
     vertical-align middle
     width 30px
@@ -114,7 +126,7 @@ $dark_gray = #889aa4
     border-radius: 5px;
     color: #454545;
 
-    
+
     /*.tips
       font-size: 14px;
       color: #fff;

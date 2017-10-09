@@ -11,3 +11,15 @@ export function loginByUsername (username, password) {
     data // 把 user pw 发给 mock
   })
 }
+
+export function getUserInfo (token) {
+  const params = {
+    token
+  }
+
+  return fetch({
+    url: '/user/info',
+    method: 'get',
+    params
+  })
+}

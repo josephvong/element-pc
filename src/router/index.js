@@ -11,5 +11,11 @@ export default new Router({
       component: _import('login/index'),
       hidden: true
     }
+    /*
+    {
+      path: '/layout',
+      component: _import('layout/layout')
+    }
+    */
   ]
 })
