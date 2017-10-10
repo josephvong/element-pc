@@ -10,12 +10,10 @@ export default new Router({
       path: '/',
       component: _import('login/index'),
       hidden: true
-    }
-    /*
+    },
     {
       path: '/layout',
-      component: _import('layout/layout')
+      component: _import('layout/Layout')
     }
-    */
   ]
 })

@@ -1,12 +1,14 @@
 <template>
   <div class="app-wrapper">
+    <Sidebar  class="sidebar-container"></Sidebar>
     <div class="main-container">
-
+      AAA
     </div>
   </div>
 </template>
 
 <script>
+import Sidebar from './Sidebar'
 export default {
   name: 'layout',
   data () {
@@ -14,6 +16,9 @@ export default {
     }
   },
   methods: {
+  },
+  components: {
+    Sidebar
   }
 }
 </script>
@@ -27,4 +32,17 @@ export default {
   position relative
   width 100%
   height 100%
+  .sidebar-container
+    position fixed;
+    top 0
+    left 0
+    bottom 0
+    width 180px
+    height 100%
+    overflow-y auto
+    z-index 1001
+  .main-container
+    min-height 100%
+    margin-left 180px
+    
 </style>
