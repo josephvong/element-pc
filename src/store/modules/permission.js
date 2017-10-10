@@ -52,7 +52,6 @@ const permission = {
         } else {
           accessedRouters = filterAsyncRouter(asyncRouterMap, roles)
         }
-        console.log('arr2', accessedRouters)
         // 根据 用户的roles 定义其能够访问的所有路由页面集合后，将其定义在vuex全局属性里面
         commit('SET_ROUTERS', accessedRouters) // 调用 mutation 修改全局数据
         resolve() // 完成以上全部处理之后，执行后续的操作

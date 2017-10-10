@@ -64,7 +64,6 @@ export default {
         if (valid) {
           this.$store.dispatch('LoginByUsername', this.loginForm).then((res) => {
             this.loading = false
-            console.log(res)
             this.$router.push({path: '/'})
           }).catch(() => {
             this.loading = false

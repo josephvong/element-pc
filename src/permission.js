@@ -30,12 +30,15 @@ router.beforeEach((to, from, next) => { // 参数 to(即将进入的页面) from
         store.dispatch('GetUserInfo').then((res) => { // 执行 异步获取用户信息 函数
           // 根据异步获取的userInfo 的返回结果 res
           const roles = res.role // 定义用户的权限
+
           // 将用户的roles数据 传入 vuex 的 actions(GeneratorRoutes方法)
           store.dispatch('GeneratorRoutes', roles).then(() => { // 此方法 通过 roles 来给用户 添加 对应roles 可以访问的路由
             // 调用router实例的 addRoutes() 方法 将 用户有权限访问的 router页面 动态添加进路由实例里面
             router.addRoutes(store.getters.addRouters)
             // 此处 表示把 将要进入的路由页面作为 要执行的 next() 函数的 参数
-            next({...to}) // next('/...') 或 next({path:'/...'})表示跳转到一个不同的地址
+            next({to}) // next('/...') 或 next({path:'/...'})表示跳转到一个不同的地址
+          }).catch((err) => {
+            console.log(err)
           })
         })
       } else {

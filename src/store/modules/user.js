@@ -2,14 +2,14 @@
   登录用户全局数据模块
 */
 import { loginByUsername, getUserInfo } from '@/api/login'
-import { setToken } from '@/utils/auth'
+import { setToken, getToken } from '@/utils/auth'
 
 const user = {
   state: {
     user: '', // 用户名（固定）
     status: '', // 状态（可变）
     roles: [],
-    token: '', // 登录token（可变，记录在cookie内）
+    token: getToken(), // 登录token（可变，记录在cookie内）
     name: '', // 用户显示名 （可变）
     avatar: '', // 头像
     introduction: '', // 简介
@@ -67,7 +67,7 @@ const user = {
           commit('SET_ROLES', data.roles)
           resolve(data)  // 并将res通过resolve(res)函数进行输出（可以在组建中调用GetUserInfo()直接使用用户信息）
         }).catch(error => {
-          reject(error)
+          reject('err is', error)
         })
       })
     }
