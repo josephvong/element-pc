@@ -3,7 +3,11 @@ const getters = {
   avatar: state => state.user.avatar,
   name: state => state.user.name,
   introduction: state => state.user.introduction,
-  roles: state => state.user.roles
+  roles: state => state.user.roles,
+  status: state => state.user.status,
+  // 与权限有关的全局数据输出
+  permission_routers: state => state.permission.routers,
+  addRouters: state => state.permission.addRouters
 }
 
 export default getters

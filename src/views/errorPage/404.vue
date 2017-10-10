@@ -1,13 +1,12 @@
 <template>
-  <el-menu mode="vertical" theme="dark" unique-opend>
-    <el-menu-item index="2"><i class="el-icon-menu"></i>导航二</el-menu-item>
-    <el-menu-item index="3"><i class="el-icon-setting"></i>导航三</el-menu-item>
-  </el-menu>
+<div class="error-page">
+  <h1>404 not found</h1>
+</div>
 </template>
 
 <script>
 export default {
-  name: 'sidebar',
+  name: 'errorpage',
   data () {
     return {
     }

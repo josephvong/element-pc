@@ -4,6 +4,7 @@ import 'element-ui/lib/theme-default/index.css'
 import App from './App'
 import router from './router'
 import store from './store'
+import './permission' // 导入权限
 import './mock'
 
 Vue.use(ElementUI)

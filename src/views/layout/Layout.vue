@@ -41,8 +41,10 @@ export default {
     height 100%
     overflow-y auto
     z-index 1001
+    &:-webkit-scrollbar // -webkit-scrollbar 可以更改滚动条的样式
+      display none
   .main-container
     min-height 100%
     margin-left 180px
-    
+
 </style>

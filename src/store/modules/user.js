@@ -58,14 +58,14 @@ const user = {
 
     GetUserInfo ({commit, state}) {
       return new Promise((resolve, reject) => {
-        getUserInfo(this.state.token).then((res) => {
+        getUserInfo(state.token).then((res) => { // 将state的token数据作为参数 调用getUserInfo()异步获取用户信息
           const data = res.data
           // 根据 res.data 设置 全局store的 userInfo数据
           commit('SET_NAME', data.name)
           commit('SET_INTRODUCTION', data.introduction)
           commit('SET_AVATAR', data.avatar)
           commit('SET_ROLES', data.roles)
-          resolve(res)  // 并将res通过resolve(res)函数进行输出（可以在组建中调用GetUserInfo()直接使用用户信息）
+          resolve(data)  // 并将res通过resolve(res)函数进行输出（可以在组建中调用GetUserInfo()直接使用用户信息）
         }).catch(error => {
           reject(error)
         })
