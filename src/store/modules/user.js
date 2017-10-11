@@ -6,7 +6,6 @@ import { setToken, getToken } from '@/utils/auth'
 
 const user = {
   state: {
-    user: '', // 用户名（固定）
     status: '', // 状态（可变）
     roles: [],
     token: getToken(), // 登录token（可变，记录在cookie内）
@@ -64,7 +63,7 @@ const user = {
           commit('SET_NAME', data.name)
           commit('SET_INTRODUCTION', data.introduction)
           commit('SET_AVATAR', data.avatar)
-          commit('SET_ROLES', data.roles)
+          commit('SET_ROLES', data.role)
           resolve(data)  // 并将res通过resolve(res)函数进行输出（可以在组建中调用GetUserInfo()直接使用用户信息）
         }).catch(error => {
           reject('err is', error)

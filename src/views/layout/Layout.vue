@@ -2,13 +2,14 @@
   <div class="app-wrapper">
     <Sidebar  class="sidebar-container"></Sidebar>
     <div class="main-container">
-      AAA
+      <AppMain></AppMain>
     </div>
   </div>
 </template>
 
 <script>
 import Sidebar from './Sidebar'
+import AppMain from './AppMain'
 export default {
   name: 'layout',
   data () {
@@ -18,7 +19,7 @@ export default {
   methods: {
   },
   components: {
-    Sidebar
+    Sidebar, AppMain
   }
 }
 </script>

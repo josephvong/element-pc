@@ -1,20 +1,19 @@
 <template>
-  <div class="menu-wrapper">
-    AAAAA
-    <!-- {{routesList.length}} -->
+  <div>
+  <el-menu-item index="1" >
+    <span>test </span>
+  </el-menu-item>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'SidebarItem'
-  /*
+  name: 'Test',
   props: {
-    routesList: {
-      type: Array
+    test: {
+      type: String
     }
   }
-  */
 }
 </script>
 

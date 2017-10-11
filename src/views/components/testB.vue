@@ -1,20 +1,19 @@
 <template>
-  <div class="menu-wrapper">
-    AAAAA
-    <!-- {{routesList.length}} -->
+  <div class="main-container">
+    组件子页面B
+
   </div>
 </template>
 
 <script>
 export default {
-  name: 'SidebarItem'
-  /*
-  props: {
-    routesList: {
-      type: Array
+  name: 'testB',
+  data () {
+    return {
     }
+  },
+  methods: {
   }
-  */
 }
 </script>
 

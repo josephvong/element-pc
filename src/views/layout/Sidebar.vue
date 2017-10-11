@@ -1,19 +1,38 @@
 <template>
-  <el-menu mode="vertical" theme="dark" unique-opend>
-    <el-menu-item index="2"><i class="el-icon-menu"></i>导航二</el-menu-item>
-    <el-menu-item index="3"><i class="el-icon-setting"></i>导航三</el-menu-item>
-    
+  <el-menu mode="vertical" theme="dark">
+    <Test></Test>
+   <!--  <Test></Test> -->
+    <!-- <sidebar-item v-if="permission_routers" :routesList="permission_routers">
+    </sidebar-item> -->
   </el-menu>
 </template>
 
 <script>
+// import { mapGetters } from 'vuex'
+// import SidebarItem from './SidebarItem'
+import Test from './Test'
 export default {
   name: 'sidebar',
+  components: {
+    // SidebarItem,
+    Test
+  },
   data () {
     return {
+      test: 'test2'
     }
   },
+  computed: {
+
+    // ...mapGetters(['permission_routers'])
+  },
   methods: {
+    showRouter () {
+      console.log('aaa')
+    }
+  },
+
+  mounted () {
   }
 }
 </script>
