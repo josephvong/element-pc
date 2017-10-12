@@ -1,20 +1,27 @@
 <template>
   <div class="menu-wrapper">
-    AAAAA
+    <el-menu-item index="2">{{test}}</el-menu-item>
+    <el-menu-item index="3">{{allowPage.length}}</el-menu-item>
     <!-- {{routesList.length}} -->
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  name: 'SidebarItem'
-  /*
-  props: {
-    routesList: {
-      type: Array
+  name: 'SidebarItem',
+  data () {
+    return {
+      test: 'test2'
     }
+  },
+  computed: {
+    ...mapGetters({
+      allowPage: 'permission_routers'
+    })
+  },
+  methods: {
   }
-  */
 }
 </script>
 

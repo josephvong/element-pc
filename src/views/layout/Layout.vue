@@ -1,6 +1,6 @@
 <template>
   <div class="app-wrapper">
-    <Sidebar  class="sidebar-container"></Sidebar>
+    <Sidebar v-if="permission_routers" class="sidebar-container"></Sidebar>
     <div class="main-container">
       <AppMain></AppMain>
     </div>
@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Sidebar from './Sidebar'
 import AppMain from './AppMain'
 export default {
@@ -17,6 +18,9 @@ export default {
     }
   },
   methods: {
+  },
+  computed: {
+    ...mapGetters(['permission_routers'])
   },
   components: {
     Sidebar, AppMain

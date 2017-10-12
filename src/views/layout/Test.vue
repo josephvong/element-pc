@@ -1,19 +1,15 @@
 <template>
   <div>
-  <el-menu-item index="1" >
+    <el-menu-item index="2">导航二</el-menu-item>
+  <!-- <el-menu-item index="1" >
     <span>test </span>
-  </el-menu-item>
+  </el-menu-item> -->
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Test',
-  props: {
-    test: {
-      type: String
-    }
-  }
+  name: 'Test'
 }
 </script>
 
