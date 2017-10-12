@@ -45,6 +45,7 @@ export default {
     width 180px
     height 100%
     overflow-y auto
+    background #324157
     z-index 1001
     &:-webkit-scrollbar // -webkit-scrollbar 可以更改滚动条的样式
       display none
