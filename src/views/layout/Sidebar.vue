@@ -12,12 +12,10 @@
 <script>
 import { mapGetters } from 'vuex'
 import SidebarItem from './SidebarItem'
-import Test from './Test'
 export default {
   name: 'sidebar',
   components: {
-    SidebarItem,
-    Test
+    SidebarItem
   },
   data () {
     return {
