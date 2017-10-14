@@ -31,7 +31,8 @@ export const constantRouterMap = [
     children: [
       {
         path: 'dashboard',
-        component: _import('dashboard/index')
+        component: _import('dashboard/index'),
+        name: '首页'
       }
     ]
   },
@@ -39,6 +40,7 @@ export const constantRouterMap = [
     path: '/introduction',
     redirect: '/introduction/index',
     component: layout,
+    name: '项目简介',
     noDropdown: true,
     icon: ['iconfont', 'icon-people'],
     children: [
@@ -52,12 +54,14 @@ export const constantRouterMap = [
   { // 404 错误页
     path: '/404',
     component: _import('errorPage/404'),
+    name: '404',
     hidden: true,
     noDropdown: false
   },
   { // 401 无权限错误页
     path: '/401',
     component: _import('errorPage/401'),
+    name: '401',
     hidden: true,
     noDropdown: false
   }
@@ -112,6 +116,13 @@ export const asyncRouterMap = [
         component: _import('components/testB'),
         name: '子页面测试B'
       }
+      /*
+      {
+        path: 'testB',
+        component: _import('components/testB'),
+        name: '子页面测试B'
+      }
+      */
     ]
   }
 ]

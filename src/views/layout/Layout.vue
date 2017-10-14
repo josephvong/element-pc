@@ -2,6 +2,7 @@
   <div class="app-wrapper">
     <Sidebar v-if="permission_routers" class="sidebar-container"></Sidebar>
     <div class="main-container">
+      <Navbar></Navbar>
       <AppMain></AppMain>
     </div>
   </div>
@@ -11,6 +12,7 @@
 import { mapGetters } from 'vuex'
 import Sidebar from './Sidebar'
 import AppMain from './AppMain'
+import Navbar from './Navbar'
 export default {
   name: 'layout',
   data () {
@@ -23,7 +25,9 @@ export default {
     ...mapGetters(['permission_routers'])
   },
   components: {
-    Sidebar, AppMain
+    Sidebar, AppMain, Navbar
+  },
+  created () {
   }
 }
 </script>
@@ -42,7 +46,7 @@ export default {
     top 0
     left 0
     bottom 0
-    width 180px
+    width 200px
     height 100%
     overflow-y auto
     background #324157
@@ -51,6 +55,6 @@ export default {
       display none
   .main-container
     min-height 100%
-    margin-left 180px
+    margin-left 200px
 
 </style>
