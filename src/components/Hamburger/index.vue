@@ -20,10 +20,6 @@ export default {
     isActive: {
       type: Boolean,
       default: false
-    },
-    toggleClick: {  // 切换状态 click
-      type: Function,
-      default: null
     }
   },
   data () {
@@ -31,6 +27,9 @@ export default {
     }
   },
   methods: {
+    toggleClick () {
+      this.$emit('hamburgerToggle')
+    }
   },
   computed: {
   },
@@ -47,9 +46,9 @@ export default {
   cursor pointer
   width 20px
   height 20px
-  transform rotate(0deg)
+  transform rotate(90deg)
   transition 0.38s
   transition-origin center center
   &.is-active
-    transform rotate(90deg)
+    transform rotate(0deg)
 </style>

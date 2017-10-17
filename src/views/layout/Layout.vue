@@ -1,9 +1,10 @@
 <template>
-  <div class="app-wrapper">
+  <div class="app-wrapper" :class="{hideSidebar:!sidebar.opened}">
     <Sidebar v-if="permission_routers" class="sidebar-container"></Sidebar>
     <div class="main-container">
       <Navbar></Navbar>
       <AppMain></AppMain>
+      {{sidebar}}
     </div>
   </div>
 </template>
@@ -22,7 +23,7 @@ export default {
   methods: {
   },
   computed: {
-    ...mapGetters(['permission_routers'])
+    ...mapGetters(['permission_routers', 'sidebar'])
   },
   components: {
     Sidebar, AppMain, Navbar
@@ -35,7 +36,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style rel="stylesheet/stylus" lang="stylus" scoped>
 @import '~stylus/mixin.styl'
-
+@import '~./sidebar.styl'
 .app-wrapper
   clearfix()
   position relative
@@ -46,15 +47,24 @@ export default {
     top 0
     left 0
     bottom 0
-    width 200px
+    width 180px
     height 100%
     overflow-y auto
     background #324157
+    transition: width 0.28s ease-out;
     z-index 1001
     &:-webkit-scrollbar // -webkit-scrollbar 可以更改滚动条的样式
       display none
   .main-container
     min-height 100%
-    margin-left 200px
+    margin-left 180px
+    transition margin-left 0.28s ease-out
+  &.hideSidebar .sidebar-container
+    width:64px;
+    overflow: inherit;
+    span
+      display none
+  &.hideSidebar .main-container
+    margin-left: 64px;
 
 </style>

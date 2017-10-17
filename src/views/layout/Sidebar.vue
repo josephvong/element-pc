@@ -1,6 +1,7 @@
 <template>
   <div>
-    <el-menu theme="dark" mode="vertical" >
+  <el-menu  theme="dark" mode="vertical" default-active="$route.path" uniqque-opened   :collapse="!isCollapse">
+   <!--  <el-menu theme="dark" mode="vertical" uniqque-opened :collapse="isCollapse" > -->
       <!-- <Test test="abc"></Test> -->
       <SidebarItem :routesList="allowPage" ></SidebarItem>
     </el-menu>
@@ -23,8 +24,12 @@ export default {
     }
   },
   computed: {
+    isCollapse () {
+      return this.sidebar.opened
+    },
     ...mapGetters({
-      allowPage: 'permission_routers'
+      allowPage: 'permission_routers',
+      sidebar: 'sidebar'
     })
   },
   methods: {
@@ -37,6 +42,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style rel="stylesheet/stylus" lang="stylus" scoped>
-// @import '~stylus/mixin.styl'
+
 
 </style>

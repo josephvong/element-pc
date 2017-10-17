@@ -1,19 +1,21 @@
-import Cookies from 'js-cookie'
+// import Cookies from 'js-cookie'
 const app = {
   state: {
     sidebar: {
-      opened: !+Cookies.get('sidebarStatus')
+      opened: true // !+Cookies.get('sidebarStatus')
     },
     visitedViews: [] // 历史访问页面的列表 （显示在页面顶部）
   },
-  mutation: {
+  mutations: {
     // 切换 sidebar 展开收起
     TOGGLE_SIDEBAR: (state) => {
+      /*
       if (state.sidebar.opend) { // opened 为true （为开）
-        Cookies.set('sidebarStatus', 1)
-      } else { // 为关
         Cookies.set('sidebarStatus', 0)
+      } else { // 为关
+        Cookies.set('sidebarStatus', 1)
       }
+      */
       state.sidebar.opened = !state.sidebar.opened
     },
 

@@ -1,6 +1,6 @@
 <template>
   <el-menu class='navbar'>
-   <Hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></Hamburger>
+   <Hamburger class="hamburger-container" @hamburgerToggle="toggleSideBar"  :isActive="sidebar.opened"></Hamburger>
   </el-menu> 
 </template>
 
