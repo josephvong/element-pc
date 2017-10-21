@@ -11,7 +11,7 @@
       </router-link>
 
       <el-submenu :index="route.name" v-if="!route.hidden && !route.noDropdown && route.children.length>0">
-
+      
         <template slot="title">
           <i :class="route.icon"></i>
           <span>{{route.name}}</span>

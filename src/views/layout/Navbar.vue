@@ -1,6 +1,8 @@
 <template>
   <el-menu class='navbar'>
    <Hamburger class="hamburger-container" @hamburgerToggle="toggleSideBar"  :isActive="sidebar.opened"></Hamburger>
+   <Levelbar></Levelbar>
+   <Tabview></Tabview> 
   </el-menu> 
 </template>
 
@@ -8,6 +10,7 @@
 import { mapGetters } from 'vuex'
 import Hamburger from 'components/Hamburger'
 import Levelbar from './Levelbar'
+import Tabview from './Tabview'
 export default {
   name: 'Navbar',
   data () {
@@ -23,10 +26,9 @@ export default {
     }
   },
   components: {
-    Hamburger, Levelbar
+    Hamburger, Levelbar, Tabview
   },
   created () {
-    console.log(this.sidebar)
   }
 }
 </script>

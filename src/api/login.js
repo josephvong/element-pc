@@ -23,3 +23,10 @@ export function getUserInfo (token) {
     params
   })
 }
+
+export function logout () {
+  return fetch({
+    url: '/login/logout',
+    method: 'post'
+  })
+}

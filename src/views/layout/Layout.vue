@@ -3,8 +3,7 @@
     <Sidebar v-if="permission_routers" class="sidebar-container"></Sidebar>
     <div class="main-container">
       <Navbar></Navbar>
-      <AppMain></AppMain>
-      {{sidebar}}
+      <AppMain></AppMain> 
     </div>
   </div>
 </template>

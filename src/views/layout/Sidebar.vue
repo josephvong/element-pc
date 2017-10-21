@@ -1,13 +1,9 @@
 <template>
   <div>
-  <el-menu  theme="dark" mode="vertical" default-active="$route.path" uniqque-opened   :collapse="!isCollapse">
-   <!--  <el-menu theme="dark" mode="vertical" uniqque-opened :collapse="isCollapse" > -->
-      <!-- <Test test="abc"></Test> -->
+    <el-menu  theme="dark" mode="vertical" default-active="$route.path" uniqque-opened   :collapse="!isCollapse">
       <SidebarItem :routesList="allowPage" ></SidebarItem>
     </el-menu>
   </div>
-    <!-- <sidebar-item v-if="permission_routers" :routesList="permission_routers">
-    </sidebar-item> -->
 </template>
 
 <script>

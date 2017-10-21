@@ -41,5 +41,7 @@ export default {
     } else {
       return Promise.reject('error') // 否则输出 Promise.reject(err)
     }
-  }
+  },
+
+  logout: () => 'success'
 }
