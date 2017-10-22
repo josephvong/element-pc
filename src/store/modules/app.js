@@ -22,7 +22,7 @@ const app = {
     // 添加 历史访问列表
     ADD_VISITED_VIEWS: (state, view) => { // 传参 为 当前要添加的路由节点
       // 判读 当前路由节点 是否已经存在于 visitedViews 内
-      if (state.visitedViews.some((v) => { v.path === view.path })) {
+      if (state.visitedViews.some((v) => { return v.path === view.path })) {
         return // 若存在， 返回（不添加）
       }
       state.visitedViews.push({name: view.name, path: view.path})  // 将 路由的 path 和 name 信息 作为 对象 添加到数组内
@@ -30,13 +30,13 @@ const app = {
 
     DEL_VISITED_VIEWS: (state, view) => {
       let index
-      for (const [i, v] of state.visitedViews.entries()) {
-        if (v.path === view.path) {
-          index = i
+      for (const [i, v] of state.visitedViews.entries()) { // 在 visitedViews里面 查找 传入的view
+        if (v.path === view.path) { // 根据 view的 path 找到 数组里面的view
+          index = i // 定义index
           break
         }
-        state.visitedViews.splice(index, 1)  // splice(x,length) 删除数组第x位开始的 length 个长度的值
       }
+      state.visitedViews.splice(index, 1)  // splice(x,length) 删除数组第x位开始的 length 个长度的值
     }
   },
   actions: {

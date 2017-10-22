@@ -107,9 +107,9 @@ export const asyncRouterMap = [
         name: '组件介绍'
       },
       {
-        path: 'testA',
-        component: _import('components/testA'),
-        name: '子页面测试A'
+        path: 'treeList',
+        component: _import('components/treeList/index'),
+        name: '递归树状列表'
       },
       {
         path: 'testB',
@@ -118,9 +118,9 @@ export const asyncRouterMap = [
       }
       /*
       {
-        path: 'testB',
-        component: _import('components/testB'),
-        name: '子页面测试B'
+        path: 'treeList',
+        component: _import('components/treeList/treeList'),
+        name: '递归树状列表'
       }
       */
     ]
