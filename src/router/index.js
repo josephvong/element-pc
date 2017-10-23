@@ -108,7 +108,7 @@ export const asyncRouterMap = [
       },
       {
         path: 'treeList',
-        component: _import('components/treeList/index'),
+        component: _import('components/treeListPage/index'),
         name: '递归树状列表'
       },
       {
