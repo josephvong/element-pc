@@ -12,7 +12,7 @@
     </div>
     <div class="sub" >
       <div class="title">附属:</div>
-      <treeItem :model="val.children"></treeItem>
+      <treeItem :model="val.children" ></treeItem>
     </div>
   </li>
   <li v-show="isSet">

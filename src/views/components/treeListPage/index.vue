@@ -46,7 +46,7 @@ const tree = {
     */
   }
 }
-import treeList from 'components/treeList'
+
 import treeItem from 'components/treeItem'
 export default {
   name: 'treeListPage',
@@ -58,7 +58,7 @@ export default {
     }
   },
   components: {
-    treeList, treeItem
+    treeItem
   },
   methods: {
     popOpen (model) {
