@@ -112,6 +112,11 @@ export const asyncRouterMap = [
         name: '递归树状列表'
       },
       {
+        path: 'tinyMce',
+        component: _import('components/tinymcePage/index'),
+        name: '富文本编辑器'
+      },
+      {
         path: 'testB',
         component: _import('components/testB'),
         name: '子页面测试B'

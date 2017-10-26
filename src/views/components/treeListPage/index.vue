@@ -23,27 +23,6 @@ const tree = {
   group_a: {
     name: 'group_a',
     children: {}
-    /*
-    children: {
-      sub_group_a: {
-        name: 'sub_group_a',
-        children: {
-          a: {
-            name: 'a',
-            children: null
-          },
-          b: {
-            name: 'b',
-            children: null
-          }
-        }
-      },
-      sub_group_b: {
-        name: 'sub_group_b',
-        children: null
-      }
-    }
-    */
   }
 }
 
