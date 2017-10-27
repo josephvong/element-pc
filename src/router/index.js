@@ -129,5 +129,26 @@ export const asyncRouterMap = [
       }
       */
     ]
+  },
+  {
+    path: '/stylelayout',
+    component: layout,
+    redirect: '/styleLayout/index',
+    name: '样式布局集合',
+    icon: ['iconfont', 'icon-component'],
+    meta: { role: ['admin'] }, // 通过vue-router 路由原的meta属性，控制页面有那些权限可以访问
+    noDropdown: false,
+    children: [
+      {
+        path: 'index',
+        component: _import('styleLayout/index'),
+        name: '组件介绍'
+      },
+      {
+        path: 'layoutcss',
+        component: _import('styleLayout/layoutcss'),
+        name: '布局样式'
+      }
+    ]
   }
 ]
