@@ -148,6 +148,11 @@ export const asyncRouterMap = [
         path: 'layoutcss',
         component: _import('styleLayout/layoutcss'),
         name: '布局样式'
+      },
+      {
+        path: 'gridlayout',
+        component: _import('styleLayout/gridlayout'),
+        name: '网格布局'
       }
     ]
   }
