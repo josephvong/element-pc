@@ -117,6 +117,11 @@ export const asyncRouterMap = [
         name: '富文本编辑器'
       },
       {
+        path: 'stickyPage',
+        component: _import('components/stickyPage/index'),
+        name: 'Sticky'
+      },
+      {
         path: 'testB',
         component: _import('components/testB'),
         name: '子页面测试B'

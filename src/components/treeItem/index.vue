@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="sub" >
-      <div class="title">附属:</div>
+      <div class="title" v-show="Object.keys(val.children).length">附属:</div>
       <treeItem :model="val.children" ></treeItem>
     </div>
   </li>
@@ -63,7 +63,7 @@ export default {
     },
     addConfirm () {
       if (this.$refs.setKey.value) {
-        this.$set(this.model, this.$refs.setKey.value, {name: '', children: {}})
+        this.$set(this.model, this.$refs.setKey.value, {name: this.$refs.setKey.value, children: {}})
         this.$refs.setKey.value = ''
         this.isSet = false
       }

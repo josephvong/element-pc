@@ -123,6 +123,58 @@
         </div>
       </div> 
     </div> 
+
+    <div class="case_d">
+      <h4>  </h4>
+      <p>
+      <strong>grid-template-areas</strong> 与 <strong> grid-area</strong> 
+      </p>
+      <p> <strong>grid-template-areas</strong> 用于定义网格(容器)区域，使用<strong> grid-area</strong>调用声明好的网格区域名称来放置对应的网格项目(grid-area属性定义在子容器里面，其值为在grid-template-areas 中定义 的名)</p>
+      <div class="clearfix">
+        <div class="grid4">
+          <div style="background:blue;color:white">a</div>
+          <div style="background:red;color:white">b</div>
+          <div style="background:yellow">c</div>
+          <div style="background:green;color:white">d</div>
+          <div style="background:pink">e</div>
+          <div style="background:deeppink">f</div>
+          <div style="background:gray">g</div>
+          <div style="background:white">h</div>
+          <div style="background:orange">i</div> 
+        </div> 
+      </div>
+      <div class="code-wrap clearfix">
+        <div class="code css" style="width:40%" v-highlight> 
+          <pre>
+            <code>
+            .grid4
+            width 600px
+            height 200px
+            display grid
+            border 1px solid red
+            grid-template-columns 1fr 1fr 1fr 1fr
+            grid-template-rows auto
+            grid-template-areas "header header header header"
+                                "main main . sidebar"
+                                "footer footer footer footer";
+            .item-a
+              grid-area header
+            .item-b
+              grid-area main
+            .item-c
+              grid-area sidebar
+            .item-d
+              grid-area footer
+            </code>
+          </pre>
+        </div>
+       <!--  <div class="code html" style="width:40%" v-highlight> 
+          <pre> <code>
+           
+          </code> </pre>
+        </div> -->
+      </div> 
+    </div> 
   </div>
 </template>
 
@@ -195,4 +247,25 @@ export default {
       height 300px
       width 500px
       grid-template-columns: 1fr 1fr 1fr 250px
+  .case_d
+    width 90%
+    margin 0 auto
+    .grid4
+      width 600px
+      height 200px
+      display grid
+      border 1px solid red
+      grid-template-columns 1fr 1fr 1fr 1fr
+      grid-template-rows auto
+      grid-template-areas "header header header header"
+                          "main main . sidebar"
+                          "footer footer footer footer";
+      .item-a
+        grid-area header
+      .item-b
+        grid-area main
+      .item-c
+        grid-area sidebar
+      .item-d
+        grid-area footer
 </style>
