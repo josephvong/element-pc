@@ -122,6 +122,11 @@ export const asyncRouterMap = [
         name: 'Sticky'
       },
       {
+        path: 'dndListPage',
+        component: _import('components/dndList/dndList'),
+        name: '列表拖拽'
+      },
+      {
         path: 'testB',
         component: _import('components/testB'),
         name: '子页面测试B'

@@ -1,6 +1,9 @@
 import axios from 'axios'
 import { Message } from 'element-ui'
 
+import store from '@/store'
+import { getToken } from '@/utils/auth'
+
 // 创建axios 实例
 const fetch = axios.create({
   baseURL: process.env.BASE_API, // api 的 baseURL
@@ -11,6 +14,9 @@ const fetch = axios.create({
 fetch.interceptors.request.use((config) => {
   // 对请求数据进行处理
   // coding...
+  if (store.getters.token) {
+    config.headers['X-Token'] = getToken() // 让每个请求携带token--['X-Token']为自定义key 请根据实际情况自行修改
+  }
   return config
 }, (err) => {
   console.log(err)
