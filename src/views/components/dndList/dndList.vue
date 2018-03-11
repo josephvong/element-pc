@@ -1,7 +1,7 @@
 <template>
 <div> 
   <div class="main-container"> 
-    <dndList></dndList>
+    <dndList :list1="list1" :list2="list2"></dndList>
   </div>
 </div>
 </template>
@@ -12,6 +12,8 @@ import dndList from 'components/twoDndList'
 export default {
   data () {
     return {
+      list1: [{content: 'a1', id: 'a1'}, {content: 'b1', id: 'b1'}, {content: 'c1', id: 'c1'}, {content: 'd1', id: 'd1'}, {content: 'e1', id: 'e1'}, {content: 'f1', id: 'f1'}],
+      list2: [{content: 'a1', id: 'a1'}, {content: 'b1', id: 'b1'}, {content: 'c1', id: 'c1'}]
     }
   },
   components: {

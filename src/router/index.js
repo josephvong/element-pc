@@ -165,5 +165,26 @@ export const asyncRouterMap = [
         name: '网格布局'
       }
     ]
+  },
+  {
+    path: '/examlpe',
+    component: layout,
+    redirect: 'noredirect',
+    name: '综合实例',
+    icon: ['iconfont', 'icon-component'],
+    meta: { role: ['admin'] }, // 通过vue-router 路由原的meta属性，控制页面有那些权限可以访问
+    noDropdown: false,
+    children: [
+      {
+        path: '/example/table',
+        component: _import('examples/table/index'),
+        redirect: '/examples/table/table',
+        name: 'Table',
+        icon: 'table',
+        children: [
+          { path: 'table', component: _import('examples/table/table'), name: '综合table' }
+        ]
+      }
+    ]
   }
 ]
