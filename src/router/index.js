@@ -183,6 +183,7 @@ export const asyncRouterMap = [
         icon: 'table',
         children: [
           { path: 'tablecase', component: _import('examples/table/tableCase'), name: 'table案例' },
+          { path: 'tablecase2', component: _import('examples/table/tableCase2'), name: 'table案例2' },
           { path: 'dynamictable', component: _import('examples/table/dynamictable/index'), name: '动态table' },
           { path: 'table', component: _import('examples/table/table'), name: '综合table' }
         ]

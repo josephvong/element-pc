@@ -33,7 +33,7 @@
     </div>
     <div class="case-wrap">
       <h3>多层表头表格</h3>
-      <el-table style="width:100%" :data="tableData1" border="true">
+      <el-table style="width:100%" :data="tableData1" :border="true">
         <el-table-column prop="date" label="日期" width="180"></el-table-column>
         <el-table-column label="配送信息">
           <el-table-column prop="name" label="姓名" width="180"></el-table-column>
@@ -44,7 +44,68 @@
         </el-table-column>
       </el-table>
     </div>
+
+    <div class="case-wrap">
+      <h3>单选表格</h3>
+      <el-table style="width:100%" :data="tableData1" highlight-current-row @current-change="handleCurrentChange">
+        <el-table-column type="index" width="50" ></el-table-column>
+        <el-table-column prop="date" label="日期" width="180"></el-table-column>
+        <el-table-column prop="name" label="姓名" width="180"></el-table-column>
+        <el-table-column prop="address" label="地址" show-overflow-tooltip></el-table-column>
+      </el-table> 
+    </div>
+    <div class="case-wrap">
+      <h3>多选表格</h3>
+      <el-table style="width:100%" :data="tableData1" @selection-change="handleSelectionChange" >
+        <el-table-column type="selection" width="50" ></el-table-column>
+        <el-table-column prop="date" label="日期" width="180"></el-table-column>
+        <el-table-column prop="name" label="姓名" width="180"></el-table-column>
+        <el-table-column prop="address" label="地址" show-overflow-tooltip></el-table-column>
+      </el-table> 
+    </div>
+
+    <div class="case-wrap">
+      <h3>排序表格</h3>
+      <el-table style="width:100%" :data="tableData1" @selection-change="handleSelectionChange" > 
+        <el-table-column prop="date" label="日期" width="180" :sortable="true" 
+        :filters="filterArr" 
+        :filter-method="dateFilterHandler" >
+        </el-table-column>
+        <el-table-column prop="name" label="姓名" width="180"></el-table-column>
+        <el-table-column prop="address" label="地址" show-overflow-tooltip></el-table-column>
+      </el-table> 
+    </div>
+
+    <div class="case-wrap">
+      <h3>自定义模板表格</h3>
+      <el-table style="width:100%" :data="tableData1" :border="true" > 
+        <el-table-column prop="date" label="日期" width="200" >
+          <template slot-scope="scope">
+            <i class="el-icon-time"></i>
+            <span>{{scope.row.date}}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="name" label="姓名" >
+          <template slot-scope="scope">
+            <el-popover trigger="hover" placement="top">
+              <p>姓名： {{scope.row.name}}</p>
+              <p>住址： {{scope.row.address}}</p>
+              <div class="name-wrapper" slot="reference"> 
+                <el-tag size="medium">{{scope.row.name}}</el-tag>
+              </div>
+            </el-popover>
+          </template>
+        </el-table-column>
+        <el-table-column  fixed="right" lable="操作" width="200" >
+          <template slot-scope="scope">
+            <el-button  >编辑</el-button>
+            <el-button @click="deleteHandle(scope.$index,scope.row)" type="danger">删除</el-button>
+          </template>
+        </el-table-column> 
+      </el-table>
+    </div>
   </div>
+  <!-- [{text: '2016-05-01', value: '2016-05-01'}, {text: '2016-05-02', value: '2016-05-02'}, {text: '2016-05-03', value: '2016-05-03'}, {text: '2016-05-04', value: '2016-05-04'}] -->
 </template>
 
 <script>
@@ -78,6 +139,16 @@ export default {
           status: 'error'
         }
       ]
+      // currentRow: null
+    }
+  },
+  computed: {
+    filterArr () {
+      let arr
+      arr = this.tableData1.map((item) => {
+        return {text: item.date, value: item.date}
+      })
+      return arr
     }
   },
   methods: {
@@ -86,6 +157,19 @@ export default {
     },
     checkHandle (row) {
       console.log(row)
+    },
+    handleCurrentChange (currentRow, oldCurrentRow) {
+      console.log(oldCurrentRow)
+    },
+    handleSelectionChange (val) {
+      console.log(val)
+    },
+    dateFilterHandler (value, row, column) {
+      return row['date'] === value
+    },
+    deleteHandle (index, row) {
+      console.log(index)
+      this.tableData1.splice(index, 1)
     }
   }
 }
